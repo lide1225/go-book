@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>借阅历史</title>
+</head>
+<body>
+    <form method="POST">
+        <div id="result">
+            <h2>借阅历史</h2>
+            {{range .history}}
+                <p>图书ID: {{.BookId}}</p>
+                <p>书名: {{.BorrowBook}}</p>
+                <p>借阅账号: {{.ReadeAccount}}</p>
+                <p>借阅时间: {{.BorrowTime}}</p>
+                <p>归还时间: {{.ReturnTime}}</p>
+                <hr>
+            {{end}}
+        </div>
+        <button type="submit">查询历史</button>
+    </form>
+</body>
+</html>

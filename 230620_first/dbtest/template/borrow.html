@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>借阅图书</title>
+</head>
+<body>
+    <form method="POST">
+		<label for="bookname">书名:</label>
+		<input type="text" id="bookname" name="bookname">
+        <br>
+        <br>
+		<label for="author">作者:</label>
+		<input type="text" id="author" name="author">
+        <br>
+        <br>
+        <input type="submit" value="确定借阅">
+
+	</form>
+    <div id="result">
+        <h2>热门书籍</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>ISBN</th>
+                    <th>类型</th>
+                    <th>出版社</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .books}}
+                <tr>
+                    <td>{{.Id}}</td>
+                    <td>{{.BookName}}</td>
+                    <td>{{.Author}}</td>
+                    <td>{{.ISBN}}</td>
+                    <td>{{.Subword}}</td>
+                    <td>{{.PubHouse}}</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+</div>
+</form>
+</body>
+</html>

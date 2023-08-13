@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书查询</title>
+</head>
+<body>
+    <header>
+        <h1>图书查询</h1>
+    </header>
+  
+    <form method="POST" action="/index/serchbook/dan">
+        <label for="title">查询书籍:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="selectBox">选择查询方式：</label>
+        <select id="selectBox" name="selectBox">
+          <option value="bookname">书名</option>
+          <option value="author">作者</option>
+          <option value="ISBN">ISBN</option>
+          <option value="subword">类型</option>
+          <option value="pubhouse">出版社</option>
+        </select>
+        <input type="submit" value="查询">
+    </form>
+
+    <form method="POST" action="/index/serchbook/duo">
+        <h2>多字段查询</h2>
+        <label for="bookname">书名</label><br><br>
+        <input type="text" id="bookname" name="bookname[]"><br><br>
+        <label for="author">作者</label><br><br>
+        <input type="text" id="author" name="author[]"><br><br>
+        <label for="isbn">ISBN号</label><br><br>
+        <input type="text" id="isbn" name="isbn[]"><br><br>
+        <label for="subword">类型</label><br><br>
+        <input type="text" id="subword" name="subword[]"><br><br>
+        <label for="pubhouse">出版社</label><br><br>
+        <input type="text" id="pubhouse" name="pubhouse[]"><br><br>
+        <input type="submit" value="查询">
+    </form>
+    <div id="result">
+        <h2>查询结果</h2>
+        {{range .Books}}
+            <p>ID: {{.Id}}</p>
+            <p>书名: {{.BookName}}</p>
+            <p>作者: {{.Author}}</p>
+            <p>ISBN: {{.ISBN}}</p>
+            <p>类型: {{.Subword}}</p>
+            <p>出版社: {{.PubHouse}}</p>
+            <hr>
+        {{end}}
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>登录</title>
+</head>
+<body>
+  <h2>登录</h2>
+  <form id="login-form" method="post">
+    <label for="account">账号</label>
+    <input type="account" id="account" name="account" required><br><br>
+    <label for="password">密码</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit">登录</button>
+    <a href="/register">注册</a>
+  </form>
+  
+  <script>
+    document.querySelector("#login-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var form = new FormData(this);
+      fetch("/login", {
+        method: "POST",
+        body: form
+      }).then(function (response) {
+        return response.json();
+      }).then(function (result) {
+        if (result.msg === "登录成功") {
+          alert("登录成功");
+          window.location.href = "/index";
+        } else {
+          alert(result.msg);
+        }
+      }).catch(function (error) {
+        alert(error);
+      });
+    });
+  </script>
+  
+</body>
+</html>

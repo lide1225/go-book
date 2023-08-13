@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+</head>
+<body>
+    <h2>注册</h2>
+    <form id="register-form" method="post">
+      <label for="readername">姓名</label>
+      <input type="text" id="readername" name="readername" required><br><br>
+      <label for="account">账号</label> 
+      <input type="account" id="account" name="account" required><br><br>
+      <label for="password">密码</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <button type="submit">注册</button>
+      <label>性别</label>
+      <input type="radio" id="male" name="gender" value="男" checked>
+      <label for="male">男</label>
+      <input type="radio" id="female" name="gender" value="女">
+      <label for="female">女</label><br><br>
+      <a href="/login">登录</a>
+    </form>
+    
+    <script>
+      document.querySelector("#register-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var form = new FormData(this);
+        fetch("/register", {
+          method: "POST",
+          body: form
+        }).then(function (response) {
+          return response.json();
+        }).then(function (result) {
+          if (result.msg === "注册成功") {
+            alert("注册成功");
+            window.location.href = "/login";
+          } else {
+            alert(result.msg);
+          }
+        }).catch(function (error) {
+          alert(error);
+        });
+      });
+    </script>
+</body>
+</html>

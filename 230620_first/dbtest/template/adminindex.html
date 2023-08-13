@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理界面</title>
+</head>
+<body>
+    <h1>欢迎超级管理员登录</h1>
+    <h2>图书管理</h2>
+    <form method="POST" action="/admin/index/add-book">
+        <h3>添加图书</h3>
+        <label for="bookname">书名</label><br><br>
+        <input type="text" id="bookname" name="bookname" required><br><br>
+        <label for="author">作者</label><br><br>
+        <input type="text" id="author" name="author" required><br><br>
+        <label for="isbn">ISBN号</label><br><br>
+        <input type="text" id="isbn" name="isbn" required><br><br>
+        <label for="subword">类型</label><br><br>
+        <input type="text" id="subword" name="subword" required><br><br>
+        <label for="pubhouse">出版社</label><br><br>
+        <input type="text" id="pubhouse" name="pubhouse" required><br><br>
+        <input type="submit" value="添加图书"><br><br>
+    </form>
+    <form method="POST" action="/admin/index/delete-book">
+        <h3>删除图书</h3>
+        <label for="bookname">书名</label><br><br>
+        <input type="text" id="bookname" name="bookname" required><br><br>
+        <label for="author">作者</label><br><br>
+        <input type="text" id="author" name="author" required><br><br>
+        <label for="isbn">ISBN号</label><br><br>
+        <input type="text" id="isbn" name="isbn" required><br><br>
+        <label for="subword">类型</label><br><br>
+        <input type="text" id="subword" name="subword" required><br><br>
+        <input type="submit" value="删除图书"><br><br>
+    </form>
+    <h2>读者管理</h2>
+    <form method="POST" action="/admin/index/add-user">
+        <h3>添加用户</h3>
+        <label for="username">姓名</label><br><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="gender">性别</label><br><br>
+        <input type="text" id="gender" name="gender" required><br><br>
+        <label for="account">账号</label><br><br>
+        <input type="text" id="account" name="account" required><br><br>
+        <label for="password">密码</label><br><br>
+        <input type="text" id="password" name="password" required><br><br>
+        <input type="submit" value="添加用户"><br><br>
+    </form>
+    <form method="POST" action="/admin/index/delete-user">
+        <h3>删除用户</h3>
+        <label for="account">账号</label><br><br>
+        <input type="text" id="account" name="account" required><br><br>
+        <input type="submit" value="删除用户"><br><br>
+    </form>
+</body>
+</html>
